@@ -20,17 +20,16 @@ def unpackage_images(filepath):
     data = data_intermediate["data"]
     labels = data_intermediate[label_key]
 
-    data = data.reshape(data.shape[0], 3, 32, 32)
+    data = data.reshape(data.shape[0], 3, 32, 32) #Restructures data into RGB, 32 by 32 cells.
+                                                  # 10000 x 3072 -> 10000 x 3 x 32 x 32
 
     return data, labels
 
 def main():
     image_file_path = '/Users/mitsuakifukuzaki/Desktop/Hub/Programming/Python_Project/Image_Recognition/images/data_batch_1'
-    data = unpackage_images(image_file_path)
-    labels = data[1]
+    (data, labels) = unpackage_images(image_file_path)
 
-    print(data)
-    print(type(data))
+
     
 
 if __name__ == "__main__":
