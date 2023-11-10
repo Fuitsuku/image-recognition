@@ -11,4 +11,6 @@
 - Gain experience with Machine Learning Python Libraries.
 
 ### References
-* {Insert new PNG | JPEG link here}
+* Captcha Image Dataset was taken from Kaggle, User "Ami".
+* Link : 'https://www.kaggle.com/datasets/fanbyprinciple/captcha-images/'
+* Image Data : 9955 Labeled CAPTCHA Images. Image Dim = 24 x 72.
