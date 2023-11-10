@@ -17,23 +17,25 @@ def showImage(fpath):
     plt.show()
 
 def partitionImages(fpath):
-    file_names = os.listdir(fpath)
+    SRC_DIRECTORY = '/Users/mitsuakifukuzaki/Desktop/Hub/Programming/Python_Project/Image_Recognition/'
+
+    current_folder = 0
     folder_names = ['batch_1', 'batch_2', 'batch_3', 
                     'batch_4', 'batch_5', 'batch_6', 
                     'batch_7', 'batch_8', 'batch_9', 
                     'batch_10']
 
-    SRC_DIRECTORY = '/Users/mitsuakifukuzaki/Desktop/Hub/Programming/Python_Project/Image_Recognition/'
     counter = 0
-    COUNTER_LIMIT = 1000
-    current_folder = 0
+    BATCH_CAPACITY = 1000
 
+    file_names = os.listdir(fpath)
     for file_name in file_names:
-        if counter == COUNTER_LIMIT:
+        if counter == BATCH_CAPACITY:
             counter = 0
             current_folder += 1
-        source_file = SRC_DIRECTORY +'captcha_images/' + file_name
-        destination_file = SRC_DIRECTORY +'images/' + folder_names[current_folder]
+
+        source_file = SRC_DIRECTORY + 'captcha_images/' + file_name
+        destination_file = SRC_DIRECTORY + 'images/' + folder_names[current_folder]
         
         shutil.move(source_file, destination_file)
         counter += 1
@@ -48,5 +50,6 @@ def saveImageNames(fpath):
 
 def main():
     return
+
 if __name__ == "__main__":
     main()
