@@ -57,13 +57,13 @@ def createLabels(fpath):
     for folder_name in folder_names:
         file_names = os.listdir(fpath + "images/" + folder_name)
         file_names = sorted(file_names)
+        
         os.chdir(fpath + "images/" + folder_name)
         with open('0image_names.txt', 'w') as txt_file:
             for file_name in file_names:
                 txt_file.write(file_name[:-4] + '\n')
 
 def main():
-    createLabels(SRC_DIRECTORY)
     return
 
 if __name__ == "__main__":
