@@ -5,7 +5,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 
-filepath = '/Users/mitsuakifukuzaki/Desktop/Hub/Programming/Python_Project/Image_Recognition/captcha_images'
+SRC_DIRECTORY = '/Users/mitsuakifukuzaki/Desktop/Hub/Programming/Python_Project/Image_Recognition/'
 
 def showImage(fpath):
     image = Image.open(fpath)
@@ -23,7 +23,7 @@ def partitionImages(fpath):
     folder_names = ['batch_1', 'batch_2', 'batch_3', 
                     'batch_4', 'batch_5', 'batch_6', 
                     'batch_7', 'batch_8', 'batch_9', 
-                    'batch_10']
+                    'test_batch']
 
     counter = 0
     BATCH_CAPACITY = 1000
@@ -48,7 +48,22 @@ def saveImageNames(fpath):
         for name in file_names:
             txt_file.write(name + '\n')
 
+def createLabels(fpath):
+    folder_names = ['batch_1', 'batch_2', 'batch_3', 
+                    'batch_4', 'batch_5', 'batch_6', 
+                    'batch_7', 'batch_8', 'batch_9', 
+                    'test_batch']
+
+    for folder_name in folder_names:
+        file_names = os.listdir(fpath + "images/" + folder_name)
+        file_names = sorted(file_names)
+        os.chdir(fpath + "images/" + folder_name)
+        with open('0image_names.txt', 'w') as txt_file:
+            for file_name in file_names:
+                txt_file.write(file_name[:-4] + '\n')
+
 def main():
+    createLabels(SRC_DIRECTORY)
     return
 
 if __name__ == "__main__":
