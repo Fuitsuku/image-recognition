@@ -16,7 +16,7 @@
 * Link : 'https://www.kaggle.com/datasets/fanbyprinciple/captcha-images/'
 * Image Data : 9955 Labeled CAPTCHA Images. Image Dim = 24 x 72.
 
-* **Resources I Used When Learning About CNNs**
+**Resources I Used When Learning About CNNs**
 * 1. "CNNs, Part 1: An Introduction to Convolutional Neural Networks" by Victor Zhou
 * Link: 'https://victorzhou.com/blog/intro-to-cnns-part-1/'
 * 2. TensorFlow - Keras Source Code
