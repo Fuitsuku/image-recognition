@@ -25,23 +25,15 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
-[11/02/2023]
-- Started Project, Created Repo
-- Found the CIFAR 10 Dataset -> This was later changed to a CAPTCHA dataset to reduce project scope.
-- Created README
-- Loaded CIFAR 10 images into this repository
+[11/18/2023]
+- Started reading an article on basics of CNNs, written by Victor Zhou.
+  - I learned about why CNNs are used over classical NNs (Image size is often too large and NNs perform poorly when image data is perfectly centered)
+  - Link: https://victorzhou.com/blog/intro-to-cnns-part-1/
+- Brief hiatus due to school. Finished writing the preProcessBatch() method that, when given a batch number, will convert each image into a numpy array, and attach the label. It creates a 2-Tuple for each image in the batch, then collects all 2-Tuples into one long list of 1000 length and returns it.
+- Will most likely need to change the structure of this method since it doesn't fully match the format of Keras. And i'm sure there is a reason why the developers of Keras decided to structure their data in a certain way.
 
-[11/03/2023]
-- Still learning the ropes of Github, looked up a few sources to understand how branches work
-
-[11/05/2023]
-- Continued to format main method and overall repository structure. Learned that most image recognition python libraries follow the "Images, source code, unit test" structure.
-
-[11/5-8/2023]
-- Started messing around with different image processing libraries.
-  - Experimented with Pillow, Tensorflow-Keras, Numpy, and io. Decided to only use pillow and numpy and and use the Keras source code as learning material.
-    - I'm reading through Keras Source Code and studying how it loads, processes, and manipulates image data.
-      - Link: https://github.com/keras-team/keras/tree/master/keras
+[11/10/2023]
+ - Began working out how I want to process the image data so it's formatted well. Keras is designed to return a 2-Tuple List containing image data and the associated data labels
 
 [11/09/2023]
 - Found a CAPTCHA Dataset on Kaggle
@@ -53,15 +45,20 @@
   - Wrote a script that partitions the 9955 images into 9 batches of 1000, leaving the remaining 955 images as a test_batch.
   - I believe this will come in handy once I begin training my CNN.
  
-[11/10/2023]
- - Began working out how I want to process the image data so it's formatted well. Keras is designed to return a 2-Tuple List containing image data and the associated data labels
-
-[11/18/2023]
-- Started reading an article on basics of CNNs, written by Victor Zhou.
-  - I learned about why CNNs are used over classical NNs (Image size is often too large and NNs perform poorly when image data is perfectly centered)
-  - Link: https://victorzhou.com/blog/intro-to-cnns-part-1/
-- Brief hiatus due to school. Finished writing the preProcessBatch() method that, when given a batch number, will convert each image into a numpy array, and attach the label. It creates a 2-Tuple for each image in the batch, then collects all 2-Tuples into one long list of 1000 length and returns it.
-- Will most likely need to change the structure of this method since it doesn't fully match the format of Keras. And i'm sure there is a reason why the developers of Keras decided to structure their data in a certain way.
+[11/5-8/2023]
+- Started messing around with different image processing libraries.
+  - Experimented with Pillow, Tensorflow-Keras, Numpy, and io. Decided to only use pillow and numpy and and use the Keras source code as learning material.
+    - I'm reading through Keras Source Code and studying how it loads, processes, and manipulates image data.
+      - Link: https://github.com/keras-team/keras/tree/master/keras
  
+[11/05/2023]
+- Continued to format main method and overall repository structure. Learned that most image recognition python libraries follow the "Images, source code, unit test" structure.
 
+[11/03/2023]
+- Still learning the ropes of Github, looked up a few sources to understand how branches work
 
+[11/02/2023]
+- Started Project, Created Repo
+- Found the CIFAR 10 Dataset -> This was later changed to a CAPTCHA dataset to reduce project scope.
+- Created README
+- Loaded CIFAR 10 images into this repository
