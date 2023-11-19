@@ -25,9 +25,18 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[11/19/2023]
+- Converted preProcessBatch() -> loadData()
+  - As expected, the formatting of how preProcessBatch returns the data was problematic. I converted it to match load_data() as defined in keras/keras/datasets/cifar10.py
+  - Also changed it to consolidate all batches into one large training data set. This will occur during run time. File storage remains the same for portability.
+- Learned more about how I can manipulate and interpret numpy.darray shapes.
+  - Specifically learned that reshaping can be done via numpy.reshape(arrayToBeShape, (newShapeDimensions), additionalOrderingDetails) 
+- Will likely begin CNN layer creation next session.
+
 [11/18/2023]
 - Started reading an article on basics of CNNs, written by Victor Zhou.
-  - I learned about why CNNs are used over classical NNs (Image size is often too large and NNs perform poorly when image data is not perfectly centered)
+  - I learned about why CNNs are used over classical NNs when working with image processing
+    - (Image dimensions are often too large and NNs perform poorly when image data is not "perfect")
   - Link: https://victorzhou.com/blog/intro-to-cnns-part-1/
 - Brief hiatus due to school. Finished writing the preProcessBatch() method that, when given a batch number, will convert each image into a numpy array, and attach the label. It creates a 2-Tuple for each image in the batch, then collects all 2-Tuples into one long list of 1000 length and returns it.
 - Will most likely need to change the structure of this method since it doesn't fully match the format of Keras. And i'm sure there is a reason why the developers of Keras decided to structure their data in a certain way.
