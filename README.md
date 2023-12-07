@@ -25,6 +25,9 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/06/2023]
+- Another very long hiatus due to finals week. Only one final remains, starting back up lightly by doing some light reading. I also read through my codebase to determine where I left off and began to reread the CNN intro written by Victor Zhou to dust off my knowledge.
+
 [11/19/2023]
 - Converted preProcessBatch() -> loadData()
   - As expected, the formatting of how preProcessBatch returns the data was problematic. I converted it to match load_data() as defined in keras/keras/datasets/cifar10.py
