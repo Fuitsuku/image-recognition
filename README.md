@@ -25,6 +25,9 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/10/2023]
+- Continued reading. Goal is to understand what a CNN is on a conceptual layer so that as I understand what I am implementing within code.
+
 [12/06/2023]
 - Another very long hiatus due to finals week. Only one final remains, starting back up lightly by doing some light reading. I also read through my codebase to determine where I left off and began to reread the CNN intro written by Victor Zhou to dust off my knowledge.
 
