@@ -25,6 +25,10 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/11/2023]
+- Finished reading Victor Zhou's CNN Part 1 Blog. I learned that CNNs are NNs with added Convolutional Layers that only highlight important features, Pooling Layers that shrink the dimensions of the data without losing important features, and an optional Softmax layer that allows us to measure "loss" (accuracy) by normalizing the output to a decimal value between 0 and 1. 
+- I moved the data-processing methods into a new python file for better organization. Codebase is becoming more modular.
+
 [12/10/2023]
 - Continued reading. Goal is to understand what a CNN is on a conceptual layer so that as I understand what I am implementing within code.
 
