@@ -22,9 +22,18 @@
 * 2. TensorFlow - Keras Source Code
 * Link: 'https://github.com/keras-team/keras/tree/master/keras'
 
+**Resources I Used to Learn More About This Specific Project
+* 1. "CAPTCHA Recognition using Convolutional Neural Network"
+* Link: 'https://medium.com/@manvi./captcha-recognition-using-convolutional-neural-network-d191ef91330e'
+
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/14/2023]
+- Found an online resource that is doing this project verbatim, reading on what their approach was and what steps they decided to take.
+   - Link: https://medium.com/@manvi./captcha-recognition-using-convolutional-neural-network-d191ef91330e
+- Realized that I may need a way to segment each CAPTCHA into the separate characters. Otherwise it would be highly inaccurate when attempting to figure out the entire CAPTCHA all at once. Will begin to follow the write up linked above on how I can implement that in my project.
+
 [12/11/2023]
 - Finished reading Victor Zhou's CNN Part 1 Blog. I learned that CNNs are NNs with added Convolutional Layers that only highlight important features, Pooling Layers that shrink the dimensions of the data without losing important features, and an optional Softmax layer that allows us to measure "loss" (accuracy) by normalizing the output to a decimal value between 0 and 1. 
 - I moved the data-processing methods into a new python file for better organization. Codebase is becoming more modular.
