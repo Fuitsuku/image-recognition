@@ -29,6 +29,12 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/15/2023]
+- Began to create the model for the data set. I'm following the article written by Manvi Goel (link posted below and above) as a baseline, and will experiment once I get a working model to understand all of the moving parts.
+- Currently, Goel has three convolution layers, 3 Max-Pooling layers, 1 Batch Normalization layer, and 1 Flattening layer. Goel picked 16 filters of 3x3, not entirely sure why, as well as an activation function of RElu for the Conv layers, which again, not sure why yet.
+- Will continue to document what I learn as I experiment with the model creation process more.
+- As a side note, Goel's article introduced me to python libraries that allow you to visuall represent the model's accuracy over "time". I put time in quotations as its really over Epochs, which although not a unit of time, do act as a form of iteration over time. I will be using this to measure the accuracy and performance of my own model once I begin to deviate from Goel's baseline.
+
 [12/14/2023]
 - Found an online resource that is doing this project verbatim, reading on what their approach was and what steps they decided to take.
    - Link: https://medium.com/@manvi./captcha-recognition-using-convolutional-neural-network-d191ef91330e
