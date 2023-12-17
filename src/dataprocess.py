@@ -1,4 +1,4 @@
-from PIL import Image
+import cv2
 import matplotlib as plt
 import shutil
 import os
@@ -6,7 +6,7 @@ import numpy as np
 
 # Sample Method that displays an imported image via PIL.Image
 def showImage( fpath ):
-    image = Image.open( fpath )
+    image = cv2.imread( fpath, cv2.IMREAD_GRAYSCALE )
     image_array = np.array( image )
 
     print( image_array.shape )
@@ -50,10 +50,11 @@ def partitionImages( fpath ):
 # Output: [ ( training-image-matrices, training-labels ), ( testing-image-matrices, testing-labels ) ]
 #         2-Tuples of 2-Tuples ((2-Tuple), (2-Tuple))
 def loadData(fpath):
-    x_train = []
-    y_train = []
-    x_test = []
-    y_test = []
+    CHARACTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVQXYZ" # Each of the possible 36 characters are indexed based on their location in this string.
+    x_train = np.zeros((9000, 24, 72, 1))
+    y_train = np.zeros((4, 9000, len(CHARACTERS)))
+    x_test = np.zeros((955, 24, 72, 1))
+    y_test = np.zeros((4, 955, len(CHARACTERS)))
 
     # PROCESSING TRAINING IMAGES [9000 TOTAL]
     # Go through each of the 9 test batches and consolidate into 1 large training set. Creates 2-Tuple (numpyArrays, labels) -> (x_train, y_train)
@@ -66,15 +67,28 @@ def loadData(fpath):
         image_names.sort()                                                # Ensures consistent ordering
 
         # Convert each image file into a numpy.darray (Height, Length, Channels) and grab label from file name.
-        for image_name in image_names:
-            data_singular = Image.open( BATCH_DIRECTORY + image_name )
-            data_singular = np.array( data_singular )                     # Height X Length X Channel (24, 72, 3)
+        for i, image_name in enumerate(image_names):
+            image_data = cv2.imread( BATCH_DIRECTORY + image_name, cv2.IMREAD_GRAYSCALE ) # Reads image in greyscale (24, 72) No Channels
+            image_data = np.array( image_data )              # Height X Length X Channel (24, 72). 
+            image_data = np.reshape( image_data, (24, 72, 1))
 
-            label_singular = image_name[ :-4 ]
-            
+            label_singular = image_name[ :-4 ] # Drop the .png from file name to extract image label
+
+            if len(label_singular) < 5: #Only 4 characters in the label
+                image_data = image_data / 255 # Normalize pixel values to be between 0 and 1.
+
+                label = np.zeros((4, 36)) # Segment the target into its individual 4 characters, we will mark which of the 36 possible characters each one is.
+
+                for j, k in enumerate(label_singular):
+                # j represents which character in the image label we are referring to
+                # k represents the character at the specific index j
+                # character_index represents which of the 36 characters is active
+                    character_index = CHARACTERS.find(k) # Finds the index of the letter in the constant variable CHARACTER.
+                    label[j, character_index] = 1        # Marks the character index at the ith value in the test label with a 1.
+
             # Add the numpy array and label into their respective lists
-            x_train.append(data_singular)
-            y_train.append(label_singular)
+            x_train[i] = image_data
+            y_train[:,i] = label
 
     # PROCESSING TEST IMAGES [955 TOTAL]
     # Determine test batch directory
@@ -85,22 +99,25 @@ def loadData(fpath):
     test_image_names.sort()                                              # Ensures consistent ordering
 
     # Convert each test_image into a numpy.darray (Height, Length, Channels) and grab label from file name.
-    for test_image_name in test_image_names:
-        data_singular = Image.open( TEST_BATCH_DIRECTORY + test_image_name )
-        data_singular = np.array( data_singular )                        # Height X Length X Channel (24, 72, 3)
+    for i, test_image_name in enumerate(test_image_names):
+        image_data = cv2.imread( BATCH_DIRECTORY + image_name, cv2.IMREAD_GRAYSCALE ) # Reads image in greyscale (24, 72) No Channels
+        image_data = np.array( image_data )              # Height X Length X Channel (24, 72). 
+        image_data = np.reshape( image_data, (24, 72, 1)) #Reshapes to be (24, 72, 1)
 
-        label_singular = test_image_name[ :-4 ]
+        label_singular = test_image_name[ :-4 ] # Drop the .png from file name to extract image label
+
+        # Convert the string into a 2-D array specifying which character was found. Helps when constructing the output layer.
+        if len(label_singular) < 5: #Only 4 characters in the label
+                image_data = image_data / 255 # Normalize pixel values to be between 0 and 1.
+
+                label = np.zeros((4, 36)) # Segment the target into its individual 4 characters, we will mark which of the 36 possible characters each one is.
+
+                for j, k in enumerate(label_singular):
+                    character_index = CHARACTERS.find(k) # Finds the index of the letter in the constant variable CHARACTER.
+                    label[j, character_index] = 1        # Marks the character index at the ith value in the test label with a 1.
         
         # Add the numpy array and label into their respective lists
-        x_test.append(data_singular)
-        y_test.append(label_singular)
-
-    x_train = np.array(x_train)
-    y_train = np.array(y_train)
-    y_train = np.reshape(y_train, (y_train.size, 1))
-
-    x_test = np.array(x_test)
-    y_test = np.array(y_test)
-    y_test = np.reshape(y_test, (y_test.size, 1))
+        x_test[i] = image_data
+        y_test[:,i] = label
 
     return (x_train, y_train), (x_test, y_test)

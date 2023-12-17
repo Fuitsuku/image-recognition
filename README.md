@@ -29,6 +29,14 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/16/2023]
+- Finished implementing Goel's model architecture. This will serve as my baseline as I tweak different parts of his model to see how the final accuracy is impacted.
+- I also modified the way I pre-processed the image data as I liked how Goel's model reserves a final output branch for each of the characters within the CAPTCHA. 
+  - This likely improves the accuracy of the model as we have more areas for training. (training an independent branch for each character index instead of training one branch for the entire 4-length character label). 
+  - Additionally, from a design consideration perspective, Goel's model architecture better aligns with the goals of CNNs. 
+    - CNNs achieve image recognition via feature-based identification (Find the important parts and ignore the rest). His model identifies each character in the CAPTCHA image, while mine only identified the entire CAPTCHA, slightly diminishing the purpose of using a CNN.
+- I will begin to test if my implementation of Goel's model is correct during the next session.
+
 [12/15/2023]
 - Began to create the model for the data set. I'm following the article written by Manvi Goel (link posted below and above) as a baseline, and will experiment once I get a working model to understand all of the moving parts.
 - Currently, Goel has three convolution layers, 3 Max-Pooling layers, 1 Batch Normalization layer, and 1 Flattening layer. Goel picked 16 filters of 3x3, not entirely sure why, as well as an activation function of RElu for the Conv layers, which again, not sure why yet.
