@@ -36,7 +36,7 @@
 - As a side note, Goel's article introduced me to python libraries that allow you to visuall represent the model's accuracy over "time". I put time in quotations as its really over Epochs, which although not a unit of time, do act as a form of iteration over time. I will be using this to measure the accuracy and performance of my own model once I begin to deviate from Goel's baseline.
 
 [12/14/2023]
-- Found an online resource that is doing this project verbatim, reading on what their approach was and what steps they decided to take.
+- Found an online resource that is doing something very similar to my project, reading on what their approach was and what steps they decided to take.
    - Link: https://medium.com/@manvi./captcha-recognition-using-convolutional-neural-network-d191ef91330e
 - Realized that I may need a way to segment each CAPTCHA into the separate characters. Otherwise it would be highly inaccurate when attempting to figure out the entire CAPTCHA all at once. Will begin to follow the write up linked above on how I can implement that in my project.
 
