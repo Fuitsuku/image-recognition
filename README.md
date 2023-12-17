@@ -29,6 +29,9 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/17/2023]
+- The fitting is running without errors, but it appears that the accuracy is not improving. I believe something about my understanding of Goel's code is incorrect. Will continue to look into it over the next few days.
+
 [12/16/2023]
 - Finished implementing Goel's model architecture. This will serve as my baseline as I tweak different parts of his model to see how the final accuracy is impacted.
 - I also modified the way I pre-processed the image data as I liked how Goel's model reserves a final output branch for each of the characters within the CAPTCHA. (Switched to using OpenCV instead of Pillow, and segmented the image label into its individual parts)
