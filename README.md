@@ -31,7 +31,7 @@
 ### Journal Entries
 [12/16/2023]
 - Finished implementing Goel's model architecture. This will serve as my baseline as I tweak different parts of his model to see how the final accuracy is impacted.
-- I also modified the way I pre-processed the image data as I liked how Goel's model reserves a final output branch for each of the characters within the CAPTCHA. 
+- I also modified the way I pre-processed the image data as I liked how Goel's model reserves a final output branch for each of the characters within the CAPTCHA. (Switched to using OpenCV instead of Pillow, and segmented the image label into its individual parts)
   - This likely improves the accuracy of the model as we have more areas for training. (training an independent branch for each character index instead of training one branch for the entire 4-length character label). 
   - Additionally, from a design consideration perspective, Goel's model architecture better aligns with the goals of CNNs. 
     - CNNs achieve image recognition via feature-based identification (Find the important parts and ignore the rest). His model identifies each character in the CAPTCHA image, while mine only identified the entire CAPTCHA, slightly diminishing the purpose of using a CNN.
