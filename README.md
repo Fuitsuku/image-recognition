@@ -22,7 +22,7 @@
 * 2. TensorFlow - Keras Source Code
 * Link: 'https://github.com/keras-team/keras/tree/master/keras'
 
-**Resources I Used to Learn More About This Specific Project
+**Resources I Used to Learn More About This Specific Project**
 * 1. "CAPTCHA Recognition using Convolutional Neural Network"
 * Link: 'https://medium.com/@manvi./captcha-recognition-using-convolutional-neural-network-d191ef91330e'
 
