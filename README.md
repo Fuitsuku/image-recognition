@@ -29,6 +29,11 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/19/2023]
+- Fixed the training issue. Turns out my preprocessing method was broken, it was replacing the data over and over again, basically making the training set 1000 images instead of the full 1000. After  fixing it, the model is training past 3% accuracy.
+- I am starting to mess with the parameters to reduce the testing set loss and overall accuracy. Really starting to see what people mean by "overfitting". The accuracy for the training set is so high, but so awful for the testing set. The better the accuracy on the training set actually, the worse it gets for the testing set.
+- Will continue to mess with the parameters for trainings + the model to see if I can improve the model at all.
+
 [12/17/2023]
 - The fitting is running without errors, but it appears that the accuracy is not improving. I believe something about my understanding of Goel's code is incorrect. Will continue to look into it over the next few days.
 

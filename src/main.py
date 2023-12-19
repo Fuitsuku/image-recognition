@@ -1,25 +1,20 @@
 from dataprocess import *
 from model import *
+from evaluate import *
 import matplotlib.pyplot as plt
 
 REPO_DIRECTORY = '/Users/mitsuakifukuzaki/Desktop/Hub/Programming/Python_Project/Image_Recognition/'
+CHARACTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVQXYZ" # Each of the possible 36 characters are indexed based on their location in this string.
 
 def main():
-    train, test = loadData(REPO_DIRECTORY) #Definitely not correct. Will fix later
-    x_train, y_train = train
-    x_test, y_test = test
+    (x_train, y_train), (x_test, y_test) = loadData(REPO_DIRECTORY, CHARACTERS) #Definitely not correct. Will fix later
 
     model = createModel( ( 24, 72, 1) )
-    model.summary()
+    # model.summary() # Prints out high-level explanation of model architecture.
 
-    hist = model.fit( x_train,  [ y_train[0], y_train[1], y_train[2], y_train[3] ], batch_size = 50, epochs = 30, validation_split = 0.2)
-
-    for label in ["accuracy"]:
-        plt.plot(hist.history[label],label=label)
-    plt.legend()
-    plt.xlabel("Epochs")
-    plt.ylabel("accuracy")
-    plt.show()
+    hist = model.fit( x_train,  [ y_train[0], y_train[1], y_train[2], y_train[3] ], batch_size = 100, epochs = 20, validation_split = 0.4)
+    evaluateOnSamples( model, x_train, y_train, x_test, y_test )
+    
 
 if __name__ == "__main__":
     main()

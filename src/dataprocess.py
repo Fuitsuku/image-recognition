@@ -49,8 +49,9 @@ def partitionImages( fpath ):
 # Input: Fpath to Project Repo
 # Output: [ ( training-image-matrices, training-labels ), ( testing-image-matrices, testing-labels ) ]
 #         2-Tuples of 2-Tuples ((2-Tuple), (2-Tuple))
-def loadData(fpath):
-    CHARACTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVQXYZ" # Each of the possible 36 characters are indexed based on their location in this string.
+def loadData(fpath, CHARACTERS):
+    counter = 0
+
     x_train = np.zeros((9000, 24, 72, 1))
     y_train = np.zeros((4, 9000, len(CHARACTERS)))
     x_test = np.zeros((955, 24, 72, 1))
@@ -63,11 +64,11 @@ def loadData(fpath):
         BATCH_DIRECTORY = fpath + "images/batch_" + str( batch_number ) + "/"
 
         # Load in all image file names
-        image_names = os.listdir( BATCH_DIRECTORY )                      
+        image_names = os.listdir( BATCH_DIRECTORY )  
         image_names.sort()                                                # Ensures consistent ordering
 
         # Convert each image file into a numpy.darray (Height, Length, Channels) and grab label from file name.
-        for i, image_name in enumerate(image_names):
+        for image_name in image_names:
             image_data = cv2.imread( BATCH_DIRECTORY + image_name, cv2.IMREAD_GRAYSCALE ) # Reads image in greyscale (24, 72) No Channels
             image_data = np.array( image_data )              # Height X Length X Channel (24, 72). 
             image_data = np.reshape( image_data, (24, 72, 1))
@@ -87,8 +88,9 @@ def loadData(fpath):
                     label[j, character_index] = 1        # Marks the character index at the ith value in the test label with a 1.
 
             # Add the numpy array and label into their respective lists
-            x_train[i] = image_data
-            y_train[:,i] = label
+            x_train[counter] = image_data
+            y_train[:,counter] = label
+            counter += 1
 
     # PROCESSING TEST IMAGES [955 TOTAL]
     # Determine test batch directory
