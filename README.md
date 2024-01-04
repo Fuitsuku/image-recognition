@@ -21,6 +21,8 @@
 * Link: 'https://victorzhou.com/blog/intro-to-cnns-part-1/'
 * 2. TensorFlow - Keras Source Code
 * Link: 'https://github.com/keras-team/keras/tree/master/keras'
+* 3. " Complete Guide to Prevent Overfitting in Neural Networks (Part-1) "
+* Link: 'https://www.analyticsvidhya.com/blog/2021/06/complete-guide-to-prevent-overfitting-in-neural-networks-part-1/'
 
 **Resources I Used to Learn More About This Specific Project**
 * 1. "CAPTCHA Recognition using Convolutional Neural Network"
@@ -29,6 +31,12 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[01/04/2024]
+- Long hiatus as I have been working on a different venture. I recently converted a personal management tool into a side business, and I have consequently been pouring most of my free time into it.
+- Today, I realized that my current implementation is experiencing overfitting. The training accuracy is very high, but it suffers from very low testing accuracy. Textbook overfitting. I spent today reading into what overfitting was, why it happens, and how I can mitigate the amount of overfitting without going as far as underfitting the model.
+  - The link to the resource I read was : https://www.analyticsvidhya.com/blog/2021/06/complete-guide-to-prevent-overfitting-in-neural-networks-part-1/
+  - Link is also posted in the summary above.
+
 [12/19/2023]
 - Fixed the training issue. Turns out my preprocessing method was broken, it was replacing the data over and over again, basically making the training set 1000 images instead of the full 1000. After  fixing it, the model is training past 3% accuracy.
 - I am starting to mess with the parameters to reduce the testing set loss and overall accuracy. Really starting to see what people mean by "overfitting". The accuracy for the training set is so high, but so awful for the testing set. The better the accuracy on the training set actually, the worse it gets for the testing set.
