@@ -12,7 +12,7 @@ def main():
     model = createModel( ( 24, 72, 1) )
     # model.summary() # Prints out high-level explanation of model architecture.
 
-    hist = model.fit( x_train,  [ y_train[0], y_train[1], y_train[2], y_train[3] ], batch_size = 100, epochs = 20, validation_split = 0.4)
+    hist = model.fit( x_train,  [ y_train[0], y_train[1], y_train[2], y_train[3] ], batch_size = 32, epochs = 5, validation_split = 0.4)
     evaluateOnSamples( model, x_train, y_train, x_test, y_test )
     
 
