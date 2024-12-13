@@ -1,4 +1,4 @@
-# First Image Processing Project
+# First Image Processing Project [CONCLUDED]
 
 ### Motivation
 - I am currently taking a course on linear algebra and wanted to see a real-world application of what I am currently learning.
@@ -31,6 +31,10 @@
 ## LINE BREAK LINE BREAK LINE BREAK LINE BREAK
 
 ### Journal Entries
+[12/13/2024]
+- I have since decommissioned this project as I have shifted my interest into other areas of work. This project was loads of fun and I learned some foundational knowledge about CNNs. 
+- For anyone reading this that is not myself, I plan on conducting similar studies in the future for new topics, based on interest. Stay tuned :)
+
 [01/04/2024]
 - Long hiatus as I have been working on a different venture. I recently converted a personal management tool into a side business, and I have consequently been pouring most of my free time into it.
 - Today, I realized that my current implementation is experiencing overfitting. The training accuracy is very high, but it suffers from very low testing accuracy. Textbook overfitting. I spent today reading into what overfitting was, why it happens, and how I can mitigate the amount of overfitting without going as far as underfitting the model.
